@@ -8,11 +8,7 @@ FROM ghcr.io/ublue-os/bluefin-dx-nvidia-open:latest
 # Fedora base image: quay.io/fedora/fedora-bootc:41
 # CentOS base images: quay.io/centos-bootc/centos-bootc:stream10
 
-RUN ln -s /var/nix /nix
-
-### MODIFICATIONS
-## make modifications desired in your image and install packages by modifying the build.sh script
-## the following RUN directive does all the things required to run "build.sh" as recommended.
+RUN mkdir /nix
 
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
@@ -20,6 +16,4 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build.sh
     
-### LINTING
-## Verify final image and contents are correct.
 RUN bootc container lint
