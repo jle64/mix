@@ -8,7 +8,7 @@ FROM ghcr.io/ublue-os/bluefin-dx-nvidia-open:latest
 # Fedora base image: quay.io/fedora/fedora-bootc:41
 # CentOS base images: quay.io/centos-bootc/centos-bootc:stream10
 
-ln -s /var/nix /nix
+RUN ln -s /var/nix /nix
 
 ### MODIFICATIONS
 ## make modifications desired in your image and install packages by modifying the build.sh script
