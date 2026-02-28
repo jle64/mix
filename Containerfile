@@ -3,7 +3,8 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/bluefin-dx-nvidia-open:latest
+#FROM ghcr.io/ublue-os/bluefin-dx-nvidia-open:latest
+FROM ghcr.io/zirconium-dev/zirconium-nvidia:latest
 # Universal Blue Images: https://github.com/orgs/ublue-os/packages
 # Fedora base image: quay.io/fedora/fedora-bootc:41
 # CentOS base images: quay.io/centos-bootc/centos-bootc:stream10
